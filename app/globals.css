@@ -1,0 +1,752 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Enhanced Typography System for Better Readability */
+:root {
+  /* Font families with fallbacks for optimal readability */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  --font-display: 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  
+  /* Enhanced font weights for better readability */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Improved line heights for better readability */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  
+  /* Enhanced letter spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match Bestlink College branding */
+  --background: #ffffff;
+  --foreground: #1e2a78;
+  --card: #f9fafb;
+  --card-foreground: #374151;
+  --popover: #ffffff;
+  --popover-foreground: #1e2a78;
+  --primary: #1e2a78;
+  --primary-foreground: #ffffff;
+  --secondary: #2480ea;
+  --secondary-foreground: #ffffff;
+  --muted: #dfd10f;
+  --muted-foreground: #1e2a78;
+  --accent: #e22824;
+  --accent-foreground: #ffffff;
+  --destructive: #e22824;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #f9fafb;
+  --ring: rgba(0, 0, 0, 0.1);
+  --chart-1: #1e2a78;
+  --chart-2: #2480ea;
+  --chart-3: #e22824;
+  --chart-4: #dfd10f;
+  --chart-5: #f9fafb;
+  --radius: 0.5rem;
+  --sidebar: #f9fafb;
+  --sidebar-foreground: #1e2a78;
+  --sidebar-primary: #1e2a78;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2480ea;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  /* Updated dark mode colors to maintain Bestlink branding */
+  --background: #0f172a;
+  --foreground: #ffffff;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #2480ea;
+  --primary-foreground: #ffffff;
+  --secondary: #334155;
+  --secondary-foreground: #f1f5f9;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #e22824;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: rgba(255, 255, 255, 0.1);
+  --chart-1: #2480ea;
+  --chart-2: #1e2a78;
+  --chart-3: #e22824;
+  --chart-4: #dfd10f;
+  --chart-5: #334155;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #2480ea;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #334155;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #334155;
+  --sidebar-ring: rgba(255, 255, 255, 0.1);
+}
+
+@theme inline {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Inter Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+  
+  /* Enhanced Institutional Color System */
+  --institutional-blue: #1E2A78;
+  --authority-blue: #0F1B5C;
+  --trust-blue: #2480EA;
+  --success-emerald: #059669;
+  --warning-amber: #D97706;
+  --neutral-slate: #475569;
+  --metric-highlight: #0EA5E9;
+  --content-overlay: rgba(30, 42, 120, 0.85);
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Responsive login layout optimizations */
+@layer components {
+  .login-container {
+    min-height: 100vh;
+    display: flex;
+    width: 100%;
+  }
+  
+  .login-image-panel {
+    display: none;
+  }
+  
+  .login-form-panel {
+    width: 100%;
+    min-width: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  @media (min-width: 1024px) {
+    .login-image-panel {
+      display: flex;
+      width: 70%;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+    
+    .login-form-panel {
+      width: 30%;
+      min-width: 0;
+      flex-shrink: 0;
+      padding: 1rem;
+      height: 100vh;
+      overflow-y: auto;
+    }
+  }
+  
+  /* Ensure form doesn't get too cramped at any zoom level */
+  .login-form-content {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  /* Image scaling to show full image without cropping */
+  .login-image {
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ensure the image panel maintains aspect ratio */
+  .login-image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Force consistent layout at all zoom levels */
+  @media (min-width: 1024px) {
+    .login-container {
+      flex-direction: row;
+    }
+    
+    .login-image-panel {
+      flex: 0 0 70%;
+    }
+    
+    .login-form-panel {
+      flex: 0 0 30%;
+    }
+  }
+}
+
+/* Enhanced Typography Classes for Login Form */
+.login-form-title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+  margin-bottom: 0;
+}
+
+.login-form-label {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.875rem;
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: #374151;
+}
+
+.login-form-input {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+  font-size: 0.875rem;
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.login-form-button {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.95rem;
+  line-height: var(--line-height-normal);
+  letter-spacing: 0.025em;
+  text-transform: none;
+  position: relative;
+  z-index: 1;
+}
+
+.login-form-help-text {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+  font-size: 0.75rem;
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+  color: #6b7280;
+}
+
+.login-form-error-text {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.75rem;
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-normal);
+  color: #dc2626;
+}
+
+.login-form-secure-text {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.75rem;
+  line-height: var(--line-height-normal);
+  letter-spacing: var(--letter-spacing-normal);
+  color: #059669;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .login-form-input,
+  .login-form-button {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .login-form-label {
+    color: #000000;
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  .login-form-help-text {
+    color: #000000;
+  }
+  
+  .login-form-error-text {
+    color: #cc0000;
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+/* Focus improvements for better accessibility */
+.login-form-input:focus,
+.login-form-button:focus {
+  outline: 2px solid #1E2A78;
+  outline-offset: 2px;
+}
+
+/* Better text rendering */
+.login-form-title,
+.login-form-label,
+.login-form-input,
+.login-form-button,
+.login-form-help-text,
+.login-form-error-text,
+.login-form-secure-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Enhanced Logo Design Classes */
+.login-logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto 1rem;
+}
+
+.login-logo-wrapper {
+  width: 4rem;
+  height: 4rem;
+  background: white;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.login-logo-wrapper:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.login-logo-accent {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  background: linear-gradient(135deg, #1E2A78 0%, #2480EA 100%);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Alternative logo design - more prominent */
+.login-logo-alternative {
+  width: 6rem;
+  height: 6rem;
+  background: linear-gradient(135deg, #1E2A78 0%, #2480EA 100%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(30, 42, 120, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-logo-alternative::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 1rem;
+}
+
+.login-logo-alternative img {
+  position: relative;
+  z-index: 1;
+  filter: brightness(0) invert(1);
+}
+
+/* Mobile responsiveness for logo */
+@media (max-width: 768px) {
+  .login-logo-container {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .login-logo-wrapper {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .login-logo-wrapper img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Mobile adjustments for enhanced logo */
+  .login-logo-enhanced {
+    width: 64px !important;
+    height: 64px !important;
+  }
+  
+  .login-form-title {
+    font-size: 1.5rem;
+  }
+  
+  .login-form-header {
+    padding-top: 1.25rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* High contrast mode support for logo */
+@media (prefers-contrast: high) {
+  .login-logo-wrapper {
+    border: 2px solid #000000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-logo-accent {
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .login-logo-wrapper {
+    transition: none;
+  }
+  
+  .login-logo-wrapper:hover {
+    transform: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.login-logo-container:focus-within {
+  outline: 2px solid #1E2A78;
+  outline-offset: 4px;
+  border-radius: 0.75rem;
+}
+
+/* Enhanced Logo Styling */
+.login-logo-enhanced {
+  transition: transform 0.2s ease;
+}
+
+.login-logo-enhanced:hover {
+  transform: scale(1.05);
+}
+
+/* Better visual hierarchy for login form */
+.login-form-header {
+  padding-top: 1.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.login-form-content-compact {
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Modern Web Portal Enhancements */
+.modern-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1E2A78 0%, #2480EA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modern-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.modern-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.modern-shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Enhanced focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/20;
+}
+
+/* Smooth transitions for all interactive elements */
+.interactive {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive:hover {
+  transform: translateY(-1px);
+}
+
+.interactive:active {
+  transform: translateY(0);
+}
+
+/* Modern scrollbar */
+.modern-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(30, 42, 120, 0.3);
+  border-radius: 3px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 42, 120, 0.5);
+}
+
+/* Institutional Design Components */
+.institutional-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.metrics-text {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--metric-highlight);
+}
+
+/* Enhanced Login Button Design */
+.professional-button {
+  /* Modern solid background instead of gradient for better readability */
+  background: #1E2A78;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 12px rgba(30, 42, 120, 0.15);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gradient overlay for depth without overwhelming */
+.professional-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.professional-button:hover {
+  background: #1A2568;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(30, 42, 120, 0.25);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.professional-button:hover::before {
+  opacity: 1;
+}
+
+.professional-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(30, 42, 120, 0.2);
+  background: #162055;
+}
+
+.professional-button:focus {
+  outline: 3px solid rgba(30, 42, 120, 0.3);
+  outline-offset: 2px;
+}
+
+.professional-button:disabled {
+  background: #9CA3AF;
+  color: #F3F4F6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.professional-button:disabled:hover {
+  background: #9CA3AF;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading state animation */
+.professional-button.loading {
+  background: #1E2A78;
+  cursor: wait;
+}
+
+.professional-button.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Enhanced button micro-interactions */
+.professional-button .group:hover svg {
+  transform: translateX(2px);
+}
+
+/* Ripple effect for better feedback */
+.professional-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.professional-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.professional-button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Improved disabled state */
+.professional-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Better focus ring for accessibility */
+.professional-button:focus-visible {
+  outline: 3px solid rgba(30, 42, 120, 0.4);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all states */
+.professional-button * {
+  transition: all 0.2s ease;
+}
+
+.institutional-overlay {
+  background: linear-gradient(135deg, var(--content-overlay) 0%, rgba(15, 27, 92, 0.8) 100%);
+}
+
+.content-carousel {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metric-counter {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--success-emerald);
+  text-shadow: 0 2px 4px rgba(5, 150, 105, 0.3);
+}
